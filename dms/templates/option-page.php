@@ -78,5 +78,10 @@
             <input type="submit" class="button-primary" value="Save" id="dms-submit-config" />
         </p>
     </form>
-    <script type="text/javascript" src="<?php echo plugins_url('dms/collector.js'); ?>"></script>
+    <pre>
+    <?php
+        $jsFile = plugins_url('../collector.js', dirname(__FILE__)) . '/collector.js'; 
+    ?>
+    </pre>
+    <script type="text/javascript" src="<?php echo $jsFile; ?>"></script>
 </div>
