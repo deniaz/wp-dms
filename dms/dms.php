@@ -3,10 +3,10 @@
  * Plugin Name: Domain Map System
  * Plugin URI: http://www.cheekyowl.com/wp/dms
  * Description: Maps certain Domains to certain WP pages (e.g. mywordpress.com -> default, myblog.com -> /blog, mypics.com -> /gallery) 
- * Version: 0.1alpha
+ * Version: 1.0
  * Author: Robert Vogt
  * Author URI: http://www.cheekyowl.com
- * License: GPL2
+ * License: GPL3
  *
  * 
  * Copyright 2012 Robert Vogt (email: robert@cheekyowl.com)
