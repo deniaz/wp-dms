@@ -35,6 +35,11 @@ class DMSMenu
             'dms_config',
             'dms_map'
         );
+        
+        register_setting(
+            'dms_config',
+            'dms_exit_php'
+        );
     }
     
     public function display()

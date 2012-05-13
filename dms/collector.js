@@ -4,6 +4,10 @@
         init: function() {
             var that = this;
             
+            $('#php-kill').change(function() {
+                $('#dms_exit_php').click();
+            });
+            
             $('#dms-submit-config').live('hover', function() {
                 var string = that.collect();
                 $('#dms_map').val(string);

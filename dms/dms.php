@@ -52,6 +52,13 @@ function dms_menu_page()
     $DMSMenu->display();
 }
 
+function dms_deactivate()
+{
+    unregister_setting('dms_config', 'dms_map', '');
+    unregister_setting('dms_config', 'dms_exit_php', '');
+}
+
 add_action('init', 'dms_init', 1, 1);
 add_action('admin_init', 'dms_settings');
 add_action('admin_menu', 'dms_menu');
+register_deactivation_hook(__FILE__, 'dms_deactivate');

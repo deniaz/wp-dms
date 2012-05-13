@@ -15,7 +15,10 @@ class DMS
             {
                 $this->displayPage($this->map[$this->domain]);
                 
-                $this->kill();
+                if (get_option('dms_exit_php') === 'on')
+                {
+                    $this->kill();
+                }
             }
         }
     }
