@@ -3,7 +3,7 @@ Contributors: deniaz
 Tags: domain, url, vhost, microsite
 Requires at least: 3.1
 Tested up to: 3.2.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,7 +33,7 @@ As easy as pie!
 
 == Installation ==
 
-1. Upload wp-dms-1.0.zip as a plugin into your WordPress instance
+1. Upload wp-dms-1.1.zip as a plugin into your WordPress instance
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Point all domains to your WordPress vhost
 4. Create a WP Page (*My Regular Product*)
