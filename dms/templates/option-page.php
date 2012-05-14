@@ -60,12 +60,6 @@
                         <strong><a class="dms-add-row" href="#">+ Add Domain Map Entry</a></strong>
                     </td>
                 </tr>
-                <tr>
-                    <th></th>
-                    <td>
-                        <label for="php-kill"><input id="php-kill" type="checkbox"<?php if (get_option('dms_exit_php') === 'on') { echo 'checked="checked"'; } ?> /> Execute <code>exit(0)</code> after loading template?</label>
-                    </td>
-                </tr>
             </table>
         </fieldset>
     <form method="post" action="options.php">
@@ -73,7 +67,6 @@
             settings_fields('dms_config');
         ?>
         <input type="hidden" id="dms_map" name="dms_map" value="<?php echo get_option('dms_map'); ?>" />
-        <input type="checkbox" id="dms_exit_php" name="dms_exit_php" style="display: none;" <?php if (get_option('dms_exit_php') === 'on') { echo 'checked="checked"'; } ?> />
         <p class="submit">
             <input type="submit" class="button-primary" value="Save" id="dms-submit-config" />
         </p>

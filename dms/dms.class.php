@@ -14,11 +14,6 @@ class DMS
             if (!empty($this->map[$this->domain]))
             {
                 $this->displayPage($this->map[$this->domain]);
-                
-                if (get_option('dms_exit_php') === 'on')
-                {
-                    $this->kill();
-                }
             }
         }
     }
@@ -38,18 +33,19 @@ class DMS
     
     private function displayPage($pageId)
     {
-        $page = get_page($pageId);
+        
+        $args = array('page_id' => $pageId);
+        query_posts($args);
+        
         $tpl = get_post_meta($pageId, '_wp_page_template', true);
-        include(TEMPLATEPATH . '/' . $tpl);
+        
+        if ($tpl === 'default') {
+            $tpl = 'page.php';
+        }
     }
     
     private function getCurrentDomain()
     {
         return $_SERVER["HTTP_HOST"];
-    }
-    
-    private function kill()
-    {
-        exit(0);
     }
 }

@@ -55,7 +55,6 @@ function dms_menu_page()
 function dms_deactivate()
 {
     unregister_setting('dms_config', 'dms_map', '');
-    unregister_setting('dms_config', 'dms_exit_php', '');
 }
 
 add_action('init', 'dms_init', 1, 1);

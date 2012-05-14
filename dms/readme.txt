@@ -61,3 +61,7 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 
 = 1.0 =
 * No changes - initial release.
+
+= 1.1 = 
+* Instead of strange page hack, modify page query
+* Remove kill switch as it is unnecessary
