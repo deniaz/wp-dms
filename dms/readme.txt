@@ -1,15 +1,22 @@
 === Domain Mapping System ===
 Contributors: deniaz
+Author URI: http://www.cheekyowl.com
+Plugin URI: http://www.cheekyowl.com/wp/wp-dms
 Tags: domain, url, vhost, microsite
 Requires at least: 3.1
 Tested up to: 3.2.2
 Stable tag: 1.1
+Version: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Domain Mapping System allows to map domains to WP pages.
 
 == Description ==
+
+= Important Links =
+
+[Official Websites](http://www.cheekyowl.com/wp/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
 
 Imagine you've got a company website based on wordpress with the domain www.mycompany.com, 
 all good so far. Furthermore, you've got two products with own domains, e.g. www.myregularproduct.com 
@@ -21,6 +28,7 @@ One important note from Wordpress is:
 > If you plan on creating sites that are strongly interconnected, that share data, or share users, then a 
 > multisite network might not be the best solution.
 (http://ow.ly/aQybY)
+
 Well, if you need a shared blog or something similar, this Networks isn't what you're looking for. But DMS is.
 
 With DMS you may point all three domains to the same Apache vhost (or nginx, lighthttpd, ...), where your wordpress 
@@ -33,7 +41,7 @@ As easy as pie!
 
 == Installation ==
 
-1. Upload wp-dms-1.1.zip as a plugin into your WordPress instance
+1. Upload domain-mapping-system.zip as a plugin into your WordPress instance
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Point all domains to your WordPress vhost
 4. Create a WP Page (*My Regular Product*)
