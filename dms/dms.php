@@ -1,9 +1,9 @@
 <?php
 /*
  * Plugin Name: Domain Map System
- * Plugin URI: http://www.cheekyowl.com/wp/wp-dms
+ * Plugin URI: http://projects.cheekyowl.com/wp-dms
  * Description: Maps certain Domains to certain WP pages (e.g. mywordpress.com -> default, myblog.com -> /blog, mypics.com -> /gallery) 
- * Version: 1.1
+ * Version: 1.2
  * Author: Robert Vogt
  * Author URI: http://www.cheekyowl.com
  * License: GPL3
@@ -21,8 +21,7 @@
  * GNU General Public License for more details.
 
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
 require_once(plugin_dir_path(__FILE__) . 'dms.class.php');

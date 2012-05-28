@@ -4,7 +4,7 @@ WordPress Domain Mapping System (DMS)
 General
 -------
 
-[Official Website](http://www.cheekyowl.com/wp/wp-dms) | [WordPress Plugin Page](http://www.wordpress.org/extend/plugins/domain-mapping-system)
+[Official Website](http://projects.cheekyowl.com/wp-dms) | [WordPress Plugin Page](http://www.wordpress.org/extend/plugins/domain-mapping-system)
 
 Description
 -----------

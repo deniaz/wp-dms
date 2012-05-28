@@ -32,9 +32,22 @@ class DMS
     }
     
     private function displayPage($pageId)
-    {
+    {   
+        $postType = get_post_type($pageId);
         
-        $args = array('page_id' => $pageId);
+        if ($postType != 'page')
+        {
+            $args = array(
+                    'post_type' => $postType,
+                    'p' => $pageId
+                    );
+        }
+        else
+        {
+            $args = array('page_id' => $pageId);
+        }
+        
+        
         query_posts($args);
         
         $tpl = get_post_meta($pageId, '_wp_page_template', true);
