@@ -16,7 +16,7 @@ Domain Mapping System allows to map domains to WP pages and/or custom types.
 
 = Important Links =
 
-[Official Websites](http://projects.cheekyowl.com/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
+[Official Website](http://projects.cheekyowl.com/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
 
 = TL;DR =
 DMS allows one to map domains to WordPress pages and/or custom posts.
