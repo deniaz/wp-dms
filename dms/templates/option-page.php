@@ -8,6 +8,9 @@ function get_dms_options()
             );
     
     $posts = array();
+   
+    if (!empty($pages))
+    {
     $posts['Pages'] = array();
     foreach ($pages as $page)
     {
@@ -15,6 +18,7 @@ function get_dms_options()
                 'id' => $page->ID,
                 'title' => $page->post_title
                 );
+    }
     }
     
     $types = get_post_types(
@@ -35,22 +39,29 @@ function get_dms_options()
                 );
     }
     
-    foreach ($cleanTypes as $type)
+    if (!empty($cleanTypes))
     {
-        $posts[$type['label']] = array();
-        $args = array(
-                'post_type' => $type['name'],
-        );
-        $loop = new WP_Query($args);
-        while ($loop->have_posts()) : $loop->the_post();
-        $posts[$type['label']][] = array(
-                'title' => get_the_title(),
-                'id' => get_the_ID()
+        foreach ($cleanTypes as $type)
+        {
+            $args = array(
+                    'post_type' => $type['name'],
+            );
+            $loop = new WP_Query($args);
+            if ($loop->have_posts())
+            {
+                $posts[$type['label']] = array();
+                
+                while ($loop->have_posts()) : $loop->the_post();
+                $posts[$type['label']][] = array(
+                        'title' => get_the_title(),
+                        'id' => get_the_ID()
                 );
-        endwhile;
-        
-        return $posts;
+                endwhile;
+            }
+        }
     }
+    
+    return $posts;
 }
 ?>
 <div class="wrap">

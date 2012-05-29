@@ -5,8 +5,8 @@ Plugin URI: http://projects.cheekyowl.com/wp-dms
 Tags: domain, url, vhost, microsite
 Requires at least: 3.1
 Tested up to: 3.2.2
-Stable tag: 1.2
-Version: 1.2
+Stable tag: 1.1
+Version: 1.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -81,3 +81,6 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 
 = 1.2 =
 * Added support for Custom Post Types
+
+= 1.2.1 =
+* Fixed empty <select>-Bug
