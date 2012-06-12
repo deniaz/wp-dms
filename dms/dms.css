@@ -1,0 +1,29 @@
+fieldset.dms
+{
+    border: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+fieldset.dms legend
+{
+    margin-left: 5px;
+    padding: 0 5px;
+    color: #09C;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button.dms-delete-row
+{
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.3;
+}

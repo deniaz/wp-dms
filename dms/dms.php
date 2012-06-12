@@ -3,7 +3,7 @@
  * Plugin Name: Domain Map System
  * Plugin URI: http://projects.cheekyowl.com/wp-dms
  * Description: Maps certain Domains to certain WP pages (e.g. mywordpress.com -> default, myblog.com -> /blog, mypics.com -> /gallery) 
- * Version: 1.2.1
+ * Version: 1.3
  * Author: Robert Vogt
  * Author URI: http://www.cheekyowl.com
  * License: GPL3
@@ -25,38 +25,10 @@
  */
 
 require_once(plugin_dir_path(__FILE__) . 'dms.class.php');
-require_once(plugin_dir_path(__FILE__) . 'dmsmenu.class.php');
 
-function dms_init()
-{
-    $dms = new DMS();
-    $dms->run();
-}
+add_action('init', array('DMS', 'run'), 1, 1);
+add_action('admin_init', array('DMS', 'adminInit'));
+add_action('admin_menu', array('DMS', 'addOptionsMenu'));
+add_action('admin_enqueue_scripts', array('DMS', 'registerScripts'));
+register_deactivation_hook(__FILE__, array('DMS', 'deactivate'));
 
-function dms_menu()
-{
-    $DMSMenu    = DMSMenu::getInstance();
-    $DMSMenu->config();
-}
-
-function dms_settings()
-{
-    $DMSMenu    = DMSMenu::getInstance();
-    $DMSMenu->registerSettings();
-}
-
-function dms_menu_page()
-{
-    $DMSMenu    = DMSMenu::getInstance();
-    $DMSMenu->display();
-}
-
-function dms_deactivate()
-{
-    unregister_setting('dms_config', 'dms_map', '');
-}
-
-add_action('init', 'dms_init', 1, 1);
-add_action('admin_init', 'dms_settings');
-add_action('admin_menu', 'dms_menu');
-register_deactivation_hook(__FILE__, 'dms_deactivate');

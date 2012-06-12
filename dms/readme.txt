@@ -5,8 +5,8 @@ Plugin URI: http://projects.cheekyowl.com/wp-dms
 Tags: domain, url, vhost, microsite
 Requires at least: 3.1
 Tested up to: 3.2.2
-Stable tag: 1.1
-Version: 1.2.1
+Stable tag: 1.3
+Version: 1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -83,4 +83,10 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 * Added support for Custom Post Types
 
 = 1.2.1 =
-* Fixed empty <select>-Bug
+* Fixed empty &lt;select&rt;-Bug
+
+= 1.3 =
+* Code Refactoring, got rid of DMSMenu-Class
+* Added support for Posts
+* Added support for CPT Archives
+* Some Admin-UI tweaks (chosen.js instead of HTML-Select, Post Type Selection)

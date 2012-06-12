@@ -1,81 +1,84 @@
-<?php 
-function get_dms_options()
-{   
-    $pages = get_pages(
-            array(
-                    'post_type' => 'page'
-                    )
-            );
-    
-    $posts = array();
-   
-    if (!empty($pages))
-    {
-    $posts['Pages'] = array();
-    foreach ($pages as $page)
-    {
-        $posts['Pages'][] = array(
-                'id' => $page->ID,
-                'title' => $page->post_title
-                );
-    }
-    }
-    
-    $types = get_post_types(
-            array(
-                    'public' => true,
-                    '_builtin' => false
-            ),
-            'objects'
-    );
-    
-    $cleanTypes = array();
-    
-    foreach ($types as $item)
-    {
-        $cleanTypes[] = array(
-                'name' => $item->query_var, 
-                'label' => $item->labels->name
-                );
-    }
-    
-    if (!empty($cleanTypes))
-    {
-        foreach ($cleanTypes as $type)
-        {
-            $args = array(
-                    'post_type' => $type['name'],
-            );
-            $loop = new WP_Query($args);
-            if ($loop->have_posts())
-            {
-                $posts[$type['label']] = array();
+<div id="screen-meta" class="metabox-prefs" style="display: block;">
+    <div id="screen-options-wrap" class="hidden" style="display: block;">
+        <form id="adv-settings" action="options.php" method="post">
+            <h5>Available Post Types</h5>
+            <em>Select which Builtin- and Custom Post Types should be available for DMS.</em>
+            <div class="metabox-prefs">
+                <label for="dms_use_page">
+                    <input class="hide-postbox-tog" name="dms_use_page" type="checkbox" id="dms_use_page" <?php $opt = get_option('dms_use_page'); if ($opt === 'on') { echo "checked=\"checked\""; } ?>>
+                    Pages
+                </label>
+                <label for="dms_use_post">
+                    <input class="hide-postbox-tog" name="dms_use_post" type="checkbox" id="dms_use_post" <?php $opt = get_option('dms_use_post'); if ($opt === 'on') { echo "checked=\"checked\""; } ?>>
+                    Posts
+                </label>
+                <?php
+                    $types = DMS::getCustomPostTypes();
+
+                    foreach ($types as $type)
+                    {
+                        echo "<label for=\"dms_use_{$type['name']}\">";
+                        $value = get_option("dms_use_{$type['name']}");
+                        if ($value === 'on')
+                        {
+                            echo "<input class=\"hide-postbox-tog\" name=\"dms_use_{$type['name']}\" type=\"checkbox\" id=\"dms_use_{$type['name']}\" checked=\"checked\">";
+                        }
+                        else
+                        {
+                            echo "<input class=\"hide-postbox-tog\" name=\"dms_use_{$type['name']}\" type=\"checkbox\" id=\"dms_use_{$type['name']}\">";
+                        }
+                        echo $type["label"];
+                        echo "</label>";
+                        
+                        if ($type['has_archive'])
+                        {
+                            echo "<label for=\"dms_use_{$type['name']}_archive\">";
+                            $value = get_option("dms_use_{$type['name']}_archive");
+                            if ($value === 'on')
+                            {
+                                echo "<input class=\"hide-postbox-tog\" name=\"dms_use_{$type['name']}_archive\" type=\"checkbox\" id=\"dms_use_{$type['name']}_archive\" checked=\"checked\">";
+                            }
+                            else
+                            {
+                            echo "<input class=\"hide-postbox-tog\" name=\"dms_use_{$type['name']}_archive\" type=\"checkbox\" id=\"dms_use_{$type['name']}_archive\">";
+                                }
+                                echo $type["label"] . " <strong>Archive</strong>";
+                                echo "</label>";
+                        }
+                    }
+                ?>
+                <br class="clear">
                 
-                while ($loop->have_posts()) : $loop->the_post();
-                $posts[$type['label']][] = array(
-                        'title' => get_the_title(),
-                        'id' => get_the_ID()
-                );
-                endwhile;
-            }
-        }
-    }
-    
-    return $posts;
-}
-?>
+                <?php
+                    settings_fields('dms_config');
+                ?>
+                
+                <p class="submit">
+                    <input type="submit" class="button-primary" value="Save" />
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+		
+<div id="screen-meta-links">		
+    <div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
+        <a href="#screen-options-wrap" id="show-settings-link" class="show-settings screen-meta-active">Configure DMS</a>
+    </div>
+</div>
+<!-- Actual Stuff -->
 <div class="wrap">
     <?php echo screen_icon(); ?>
     <h2>Domain Map System Configuration</h2>
     <div class="updated">
         <p><strong>Warning!</strong></p>
-        <p>Only change these settings when you're <em>absolutely</em> sure what you're doing. Changing these settings might break the internet. Seriously.</p>
+        <p>Only change these settings if you're <em>absolutely</em> sure what you're doing. Changing these settings might break the internet. Seriously.</p>
     </div>
-        <fieldset style="border: 1px solid #ddd; padding-bottom: 20px; margin-top: 20px;">
-            <legend style="margin-left: 5px; padding: 0 5px; color: #09C; text-transform: uppercase; font-weight: bold;">
+        <fieldset class="dms">
+            <legend>
                 DMS Map
             </legend>
-            <table class="form-table">
+            <table class="form-table" id="dms-map">
                 <tr valign="top">
                     <th scope="row">
                         <label>Domains</label>
@@ -91,12 +94,12 @@ function get_dms_options()
                              <tr>
                                  <th></th>
                                  <td>
-                                     <input type="text" class="regular-text dms-collect-key" value="<?php echo str_replace("_", ".", $key); ?>" />
+                                     <input type="text" class="regular-text dms-collect-key" value="<?php echo str_replace("_", ".", $key); ?>" placeholder="www.example.com"/>
                                      <?php 
-                                         $options = get_dms_options();
+                                         $options = DMS::getDMSOptions();
                                      ?>
-                                     <select id="page_id" name="page_id">
-                                         <option>- Select -</option>
+                                     <select class="dms page_id" name="page_id" data-placeholder="The choice is yours.">
+                                         <option></option>
                                          <?php
                                              foreach ($options as $key => $optgroup)
                                              {
@@ -117,21 +120,21 @@ function get_dms_options()
                                          ?>
                                      </select>
                                      
-                                     <button class="dms-delete-row" title="Delete" style="padding: 0; cursor: pointer; background: transparent; border: 0; font-size: 16px; font-weight: bold; line-height: 18px; color: #000; text-shadow: 0 1px 0 #fff; opacity: 0.3;">&times;</button>
+                                     <button class="dms-delete-row" title="Delete">&times;</button>
                                  </td>
                              </tr>
                              <?php 
                          }
                     ?>
-                    <tr id="dms-new-domain">
+                    <tr>
                     <th></th>
                     <td>
                         <input type="text" class="regular-text dms-collect-key" placeholder="www.example.com" />
                         <?php 
-                                         $options = get_dms_options();
+                                         $options = DMS::getDMSOptions();
                                      ?>
-                                     <select id="page_id" name="page_id">
-                                         <option>- Select -</option>
+                                     <select class="dms page_id" name="page_id" data-placeholder="The choice is yours.">
+                                         <option></option>
                                          <?php
                                              foreach ($options as $key => $optgroup)
                                              {
@@ -144,10 +147,10 @@ function get_dms_options()
                                              }
                                          ?>
                                      </select>
-                        <button class="dms-delete-row" title="Delete" style="padding: 0; cursor: pointer; background: transparent; border: 0; font-size: 16px; font-weight: bold; line-height: 18px; color: #000; text-shadow: 0 1px 0 #fff; opacity: 0.3;">&times;</button>
+                        <button class="dms-delete-row" title="Delete">&times;</button>
                     </td>
                 </tr>
-                <tr>
+                <tr id="dms-add-new-tr">
                     <th></th>
                     <td>
                         <strong><a class="dms-add-row" href="#">+ Add Domain Map Entry</a></strong>
@@ -157,17 +160,11 @@ function get_dms_options()
         </fieldset>
     <form method="post" action="options.php">
         <?php
-            settings_fields('dms_config');
+            settings_fields('dms_storage');
         ?>
         <input type="hidden" id="dms_map" name="dms_map" value="<?php echo get_option('dms_map'); ?>" />
         <p class="submit">
             <input type="submit" class="button-primary" value="Save" id="dms-submit-config" />
         </p>
     </form>
-    <pre>
-    <?php
-        $jsFile = plugins_url('../collector.js', dirname(__FILE__)) . '/collector.js'; 
-    ?>
-    </pre>
-    <script type="text/javascript" src="<?php echo $jsFile; ?>"></script>
 </div>
