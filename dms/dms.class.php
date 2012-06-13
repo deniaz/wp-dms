@@ -151,7 +151,6 @@ class DMS
      */
     private function registerStyles()
     {
-        echo "lol";
         wp_register_style('chosen-css', plugins_url('chosen.css', __FILE__), array(), '', 'all');
         wp_enqueue_style('chosen-css');
         
