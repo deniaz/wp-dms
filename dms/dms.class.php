@@ -95,7 +95,7 @@ class DMS
      */
     public static function includeTemplate()
     {
-        if (!current_user_can('install_plugins'))
+        if (!current_user_can('manage_options'))
         {
             wp_die(__('You do not have the permissions to access this page.'));
         }
