@@ -27,3 +27,8 @@ button.dms-delete-row
     text-shadow: 0 1px 0 #fff;
     opacity: 0.3;
 }
+
+select.dms
+{
+    width: 250px;
+}
