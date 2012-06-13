@@ -69,7 +69,7 @@
 <!-- Actual Stuff -->
 <div class="wrap">
     <?php echo screen_icon(); ?>
-    <h2>Domain Map System Configuration</h2>
+    <h2>Domain Mapping System Configuration</h2>
     <div class="updated">
         <p><strong>Warning!</strong></p>
         <p>Only change these settings if you're <em>absolutely</em> sure what you're doing. Changing these settings might break the internet. Seriously.</p>
