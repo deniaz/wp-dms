@@ -90,3 +90,5 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 * Added support for Posts
 * Added support for CPT Archives
 * Some Admin-UI tweaks (chosen.js instead of HTML-Select, Post Type Selection)
+* Tested with [WordPress MU Domain Mapping Plugin](http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping)
+* To provide MU support, users must now be able to change settings instead of installing plugins to use DMS Options (Capabilities).
