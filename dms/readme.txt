@@ -83,7 +83,7 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 * Added support for Custom Post Types
 
 = 1.2.1 =
-* Fixed empty &lt;select&rt;-Bug
+* Fixed empty &lt;select&gt;-Bug
 
 = 1.3 =
 * Code Refactoring, got rid of DMSMenu-Class
