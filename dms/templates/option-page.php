@@ -94,7 +94,9 @@
                              <tr>
                                  <th></th>
                                  <td>
-                                     <input type="text" class="regular-text dms-collect-key" value="<?php echo str_replace("_", ".", $key); ?>" placeholder="www.example.com"/>
+                                     <span class="pre-host">http://</span>
+                                     <input type="text" class="dms regular-text dms-collect-key" value="<?php echo str_replace("_", ".", $key); ?>" placeholder="www.example.com"/>
+                                     <span class="post-host">/</span>
                                      <?php 
                                          $options = DMS::getDMSOptions();
                                      ?>
@@ -129,7 +131,9 @@
                     <tr>
                     <th></th>
                     <td>
-                        <input type="text" class="regular-text dms-collect-key" placeholder="www.example.com" />
+                        <span class="pre-host">http://</span>
+                        <input type="text" class="dms regular-text dms-collect-key" placeholder="www.example.com" />
+                        <span class="post-host">/</span>
                         <?php 
                                          $options = DMS::getDMSOptions();
                                      ?>

@@ -14,6 +14,55 @@ fieldset.dms legend
     font-weight: bold;
 }
 
+.pre-host,
+.post-host
+{
+    display: inline-block;
+    width: auto;
+    height: 13px;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    vertical-align: middle;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    line-height: 12px;
+    margin-top: -1px;
+    color: #666;
+}
+
+.pre-host
+{
+    margin-right: -6px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -o-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    z-index: 999;
+}
+
+.post-host
+{
+    margin-left: -6px;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -o-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+    z-index: 999;
+}
+
+input.dms.regular-text
+{
+    border: 1px solid #CCC;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    
+}
+
 button.dms-delete-row
 {
     padding: 0;
@@ -31,4 +80,9 @@ button.dms-delete-row
 select.dms
 {
     width: 250px;
+}
+
+div.chzn-container
+{
+    vertical-align: middle;
 }
