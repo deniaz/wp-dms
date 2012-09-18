@@ -4,7 +4,7 @@ Author URI: http://www.cheekyowl.com
 Plugin URI: http://projects.cheekyowl.com/wp-dms
 Tags: domain, url, vhost, microsite
 Requires at least: 3.1
-Tested up to: 3.2.2
+Tested up to: 3.4.2
 Stable tag: 1.3
 Version: 1.3.1
 License: GPLv3 or later
