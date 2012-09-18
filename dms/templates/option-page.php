@@ -12,6 +12,10 @@
                     <input class="hide-postbox-tog" name="dms_use_post" type="checkbox" id="dms_use_post" <?php $opt = get_option('dms_use_post'); if ($opt === 'on') { echo "checked=\"checked\""; } ?>>
                     Posts
                 </label>
+                <label for="dms_use_categories">
+                    <input class="hide-postbox-tog" name="dms_use_categories" type="checkbox" id="dms_use_categories" <?php $opt = get_option('dms_use_categories'); if ($opt === 'on') { echo "checked=\"checked\""; } ?>>
+                    Blog Categories
+                </label>
                 <?php
                     $types = DMS::getCustomPostTypes();
 

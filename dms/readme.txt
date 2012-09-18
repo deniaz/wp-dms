@@ -6,7 +6,7 @@ Tags: domain, url, vhost, microsite
 Requires at least: 3.1
 Tested up to: 3.2.2
 Stable tag: 1.3
-Version: 1.3
+Version: 1.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -19,7 +19,7 @@ Domain Mapping System allows to map domains to WP pages and/or custom types.
 [Official Website](http://projects.cheekyowl.com/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
 
 = TL;DR =
-DMS allows one to map domains to WordPress pages and/or custom posts.
+DMS allows one to map domains to WordPress pages, (custom) posts and (custom) archives.
 
 = Domain Mapping System = 
 
@@ -58,7 +58,7 @@ As easy as pie!
 
 = Which Wordpress Versions are supported? =
 
-I have no idea, Wordpress 3.3.2 surely is.
+I have no idea, Wordpress 3.3.2 - 3.4.2 surely are.
 
 = I've found a bug! What now? =
 
@@ -92,3 +92,6 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 * Some Admin-UI tweaks (chosen.js instead of HTML-Select, Post Type Selection)
 * Tested with [WordPress MU Domain Mapping Plugin](http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping)
 * To provide MU support, users must now be able to change settings instead of installing plugins to use DMS Options (Capabilities).
+
+= 1.3.1 =
+* Added support for Blogpost Categories

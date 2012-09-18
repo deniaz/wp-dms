@@ -126,6 +126,11 @@ class DMS
                 'dms_use_post'
         );
         
+        register_setting(
+                'dms_config',
+                'dms_use_categories'
+        );
+        
         foreach ($types as $cpt)
         {
             register_setting(
@@ -239,33 +244,70 @@ class DMS
          * TPL manually, and exit() after that.
          */
         else
-        {
-            $postType    = substr($pageID, 8);
-            
-            $args    = array(
-                    'post_type' => $postType,
-                    'm' => 0,
-                    'p' => 0,
-                    'post_parent' => 0
-                    );
-            
-            query_posts($args);
-            
-            /*
-             * $file is the path for the CPT Archive Template
-             */
-            $file    = TEMPLATEPATH . "/archive-{$postType}.php";
-            
-            /*
-             * If a CPT Archive Template exists, use it and kill the script. Otherwise
-             * let WordPress handle the fallback stuff.
-             */
-            if (file_exists($file))
+        {            
+            if (is_numeric(strpos($pageID, 'archive')))
             {
-                include_once(TEMPLATEPATH . "/archive-{$postType}.php");
-                exit(0);
+                $this->loadArchive($pageID);
+            }
+            elseif (is_numeric(strpos($pageID, 'category')))
+            {
+                $this->loadCategory($pageID);
             }
         }
+    }
+    
+    /**
+     * Query CPT posts & load (CTP) Archive Templates
+     * 
+     * Includes archive-{$cpt-type}.php and terminates.
+     * If archive-Template is not present, WordPress fallback
+     * is used.
+     * 
+     * @param String $pageID
+     */
+    private function loadArchive($pageID)
+    {
+        $postType    = substr($pageID, 8);
+        
+        $args    = array(
+                'post_type' => $postType,
+                'm' => 0,
+                'p' => 0,
+                'post_parent' => 0
+        );
+        
+        query_posts($args);
+        
+        /*
+         * $file is the path for the CPT Archive Template
+        */
+        $file    = TEMPLATEPATH . "/archive-{$postType}.php";
+        
+        /*
+         * If a CPT Archive Template exists, use it and kill the script. Otherwise
+        * let WordPress handle the fallback stuff.
+        */
+        if (file_exists($file))
+        {
+            include_once($file);
+            exit(0);
+        }
+    }
+    
+    /**
+     * Query Posts by Category, let WP handle the rest.
+     * 
+     * @param unknown_type $pageID
+     */
+    private function loadCategory($pageID)
+    {
+        $category    = substr($pageID, 9);
+        
+        $args    = array(
+                'category_name' => $category 
+        );
+        
+        query_posts($args);
     }
     
     /**
@@ -346,6 +388,25 @@ class DMS
                             'id' => $post->ID,
                             'title' => $post->post_title
                     );
+                }
+            }
+        }
+        
+        $useCats = get_option('dms_use_categories');
+        
+        if ($useCats === 'on')
+        {
+            $cats = get_categories();
+            
+            if (!empty($cats))
+            {
+                $posts['Blog Categories'] = array();
+                foreach ($cats as $cat)
+                {
+                    $posts['Blog Categories'][] = array(
+                            'title' => $cat->name,
+                            'id' => "category-{$cat->slug}"
+                            );
                 }
             }
         }
