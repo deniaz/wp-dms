@@ -377,7 +377,11 @@ class DMS
         
         if ($usePosts === 'on')
         {
-            $blogPosts = get_posts();
+            $blogPosts = get_posts(
+                array(
+                    'numberposts' => -1
+                    )
+                );
         
             if (!empty($blogPosts))
             {
@@ -423,6 +427,7 @@ class DMS
                 {
                     $args = array(
                             'post_type' => $type['name'],
+                            'posts_per_page' => -1
                     );
         
                     $loop = new WP_Query($args);
