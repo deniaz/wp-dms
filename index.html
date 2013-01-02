@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WordPress Domain Mapping System | A MIND Code</title>
+
+        <meta property="og:title" content="Domain Mapping System" />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="http://deniaz.github.com/wp-dms" />
+        <meta property="og:image" content="" />
+        <meta property="og:site_name" content="WordPress Domain Mapping System" />
+        <meta property="fb:admins" content="659596868" />
+
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <meta name="description" content="Domain Mapping System allows to map domains to WP Pages and/or custom post types.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 60px;
+            }
+        </style>
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <a href="https://github.com/deniaz/wp-dms" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub"></a>
+            <header>
+                <div class="row">
+                    <div class="span6">
+                        <div class="row">
+                            <div class="span6">
+                                <div class="row">
+                                    <div class="span2">
+                                        <img id="logo" src="img/logo.png" alt="Logo" />
+                                    </div>
+                                    <div class="span4">
+                                        <div class="title">
+                                            <h1>
+                                                <span class="dinky">WordPress</span>
+                                                Domain Mapping Sytem
+                                            </h1>
+                                            <h2>
+                                                Domain Mapping System allows to map domains to WP Pages and/or custom post types.
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row space">
+                            <div class="span6">
+                                <div class="row">
+                                    <div class="span2">
+                                        <a href="https://github.com/deniaz/wp-dms/archive/master.zip" class="button">Download</a>
+                                    </div>
+                                    <div class="span4">
+                                        <span class="version">Version 1.3.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row space">
+                            <div class="span6">
+                                <a href="http://wordpress.org/extend/plugins/domain-mapping-system/" class="wordpress" target="_blank">Get DMS from wordpress.com</a>
+                            </div>
+                        </div>
+                        <div class="row space">
+                            <div class="span6">
+                                <div class="fb-like" data-href="http://www.google.com" data-send="false" data-width="450" data-show-faces="false" data-colorscheme="dark"></div>
+                                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <img src="img/screenshot.png" alt="Domaing Mapping System Screenshot" />
+                    </div>
+                </div>
+            </header>
+
+            <div id="content">
+                <div class="row">
+                    <div class="span4">
+                        <h3>Easy to Use</h3>
+                        <p>
+                            Built for a client's project, but with the WordPress community in mind, DMS is very easy to install and congfigure.
+                        </p>
+                    </div>
+
+                    <div class="span4">
+                        <h3>WordPress 3.5 Ready</h3>
+                        <p>
+                            DMS works perfectly with WordPress 3.5. The lower supported WordPress version is 3.3.2. DMS might work below that, but without guarantees.
+                        </p>
+                    </div>
+                    <div class="span4">
+                        <h3>WPMUDEV Compatible</h3>
+                        <p>
+                            WordPress Domain Mapping System is comatible with the amazing WPMUDEV plugins <a href="http://premium.wpmudev.org/project/domain-mapping/" target="_blank">Domain Mapping</a> and <a href="http://premium.wpmudev.org/project/multi-domains/" target="_blank">Multi-Domains</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span4">
+                        <h3>Installation</h3>
+                        <ol>
+                            <li>
+                                <div class="bullet">
+                                    <p>1</p>
+                                </div>
+
+                                <h4>Upload &amp; Install</h4>
+                                <p>
+                                    Install the plugin via FTP or the WordPress plugin page.
+                                </p>
+                            </li>
+
+                            <li>
+                                <div class="bullet">
+                                    <p>2</p>
+                                </div>
+
+                                <h4>Activation</h4>
+                                <p>
+                                    Activate the domain mapping system on the plugin page.
+                                </p>
+                            </li>
+
+                            <li>
+                                <div class="bullet">
+                                    <p>3</p>
+                                </div>
+
+                                <h4>ServerAlias</h4>
+                                <p>
+                                    Add all domains as <code>ServerAlias</code> to your WordPress vhost.conf
+                                </p>
+                                <p>
+                                    <a href="http://httpd.apache.org/docs/2.2/vhosts/examples.html" target="_blank">More info on the vhost-part</a>
+                                </p>
+                            </li>
+
+                            <li>
+                                <div class="bullet">
+                                    <p>4</p>
+                                </div>
+
+                                <h4>Create Content</h4>
+                                <p>
+                                    Create a WordPress page, post or a custom post type entity. Let's call it &laquo; DMS Homepage &raquo;. You could choose a custom template.
+                                </p>
+                                <p>
+                                    <a href="http://codex.wordpress.org/Pages#Creating_Your_Own_Page_Templates" target="_blank">More info on custom templates</a>
+                                </p>
+                            </li>
+
+                            <li>
+                                <div class="bullet">
+                                    <p>5</p>
+                                </div>
+
+                                <h4>Configure Mapping</h4>
+                                <p>
+                                    Go to <em>Settings -> DMS Options</em>. If using a custom post type, enable it on the top. Add your domains and select the content &laquo; DMS Homepage &raquo;. Rember to add
+                                    <code>domain.com</code> <strong>and</strong> <code>www.domain.com</code>. Finally, click save.
+                                </p>
+                            </li>
+
+                            <li>
+                                <div class="bullet">
+                                    <p>6</p>
+                                </div>
+
+                                <h4>Rock'n'Roll</h4>
+                                <p>
+                                    Your WordPress install is now ready.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="span4">
+                        <h3>When to use</h3>
+                        <p>
+                            If you're running a website on WordPress and need to create a related <strong>Microsite</strong>, DMS can help you. Both websites will run from the same WordPress instance and can therefore
+                            be managed by the same login.
+                        </p>
+                        <p>
+                            DMS will analyse HTTP requests and check if the domain is mapped to WordPress content. If so, DMS will load the corresponding content. Otherwise, it will not do anything and let WordPress do
+                            its magic.
+                        </p>
+                        <p>
+                            If you'd like to create a Microsite, you could use a <a href="http://codex.wordpress.org/Pages#Creating_Your_Own_Page_Templates" target="_blank">custom template</a> for a page (or custom post type) and use DMS to make the user feel like using a stand-alone website.
+                        </p>
+                        <p>
+                            WPMUDEV staff have writte a <a href="http://wpmu.org/how-to-use-domain-mapping-for-wordpress-pages/" target="_blank">blog post</a> about the Domain Mapping System with a nice use case.
+                        </p>
+                    </div>
+                    <div class="span4">
+                        <h3>FAQ</h3>
+                        <ul class="unstyled">
+                            <li>
+                                <h4>Can I map to categories or archives?</h4>
+                                <p>Yes.</p>
+                            </li>
+
+                            <li>
+                                <h4>When clicking a link, the URL changes. What am I doing wrong?</h4>
+                                <p>Nothing. The way WordPress works and DMS was built, this is the correct behaviour. DMS is aimed to support Microsites.</p>
+                            </li>
+
+                            <li>
+                                <h4>Does this plugin work with WPMUDEV plugins?</h4>
+                                <p>
+                                    Yes, yes it does. To make use of the full potential, you should go to the WPMUDEV Domain Mapping directory and open up domain-mapping.php. Uncomment the following line code (line 31):
+                                    <pre><span class="function">define</span><span class="syntax">(</span><span class="string">'DOMAINMAPPING_ALLOWMULTI'</span><span class="syntax">,</span><span class="string">'yes'</span><span class="syntax">);</span></pre>
+                                </p>
+                            </li>
+
+                            <li>
+                                <h4>What does DMS do about SEO?</h4>
+                                <p>Nothing. You'll need to use a third-party SEO plugin.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="product-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12"><h3>More from us</h3></div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <a href="#"><img src="http://placehold.it/96x64" alt="EverVote" /></a>
+                            <h1>
+                                <a href="#">
+                                    <span class="dinky">WordPress</span>
+                                    EverVote
+                                </a>
+                            </h1>
+                            <p>
+                                <a href="#">
+                                    Let‘s users vote on your content without forcing them to register. EverVote stores userdata server- and client-side to prevent fraud.
+                                </a>
+                            </p>
+                        </div>
+                        <div class="span4">
+                            <a href="#"><img src="http://placehold.it/96x64" alt="MindSet" /></a>
+                            <h1>
+                                <a href="#">
+                                    <span class="dinky">WordPress</span>
+                                    MindSet
+                                </a>
+                            </h1>
+                            <p>
+                                <a href="#">
+                                    Blank, responsive WordPress Theme with a beautiful PHP API to customise WordPress. Starter theme for developers.
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="impress-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <ul id="social">
+                                <li class="facebook"><a href="http://www.facebook.com/d3niaz" target="_blank">Facebook</a></li>
+                                <li class="xing"><a href="https://www.xing.com/profile/Robert_Vogt5" target="_blank">Xing</a></li>
+                                <li class="gplus"><a href="http://www.gplus.to/deniaz" target="_blank">Google+</a></li>
+                                <li class="github"><a href="http://www.github.com/deniaz" target="_blank">GitHub</a></li>
+                            </ul>
+                        </div>
+                        <div class="span4">
+                            <p class="copyright">
+                                &copy; Robert Vogt 2013. All Rights Reserved. | <a href="http://www.mind.ch" target="_blank" class="mind">A MIND Code</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div id="fb-root"></div>
+        <!--<script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=123638987748685";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>-->
+
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!--<script>
+            var _gaq=[['_setAccount','UA-37366877-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>-->
+    </body>
+</html>
