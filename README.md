@@ -1,24 +1,24 @@
-WordPress Domain Mapping System (DMS)
+#WordPress Domain Mapping System (DMS)#
 =====================================
 
-General
+##General##
 -------
+[Official Website](http://deniaz.github.com/wp-dms) | [WordPress Plugin Page](http://www.wordpress.org/extend/plugins/domain-mapping-system)
 
-[Official Website](http://projects.cheekyowl.com/wp-dms) | [WordPress Plugin Page](http://www.wordpress.org/extend/plugins/domain-mapping-system)
-
-Description
+##Description##
 -----------
-Imagine you've got a company website based on wordpress with the domain www.mycompany.com, all good so far. Furthermore, you've got two products with own domains, e.g. www.myregularproduct.com and www.myspecialproduct.com.
+**Domain Mapping System allows to map domains to WP Pages and/or custom post types.**
 
-Let's assume your product pages are micro-sites. One way to handle this, is by using Wordpress Networks. One important note from Wordpress is:
+If you're running a website on WordPress and need to create a related **Microsite**, DMS can help you. Both websites will run from the same WordPress instance and can therefore be managed by the same login.
 
+DMS will analyse HTTP requests and check if the domain is mapped to WordPress content. If so, DMS will load the corresponding content. Otherwise, it will not do anything and let WordPress do its magic.
+
+If you'd like to create a Microsite, you could use a custom template for a page (or custom post type) and use DMS to make the user feel like using a stand-alone website.
+
+###Why not use WordPress MultiSite Network?###
+
+Because it says:
 >If you plan on creating sites that are strongly interconnected, that share data, or share users, then a multisite network might not be the best solution.
 >[ow.ly/aQybY](http://ow.ly/aQybY)
 
-Well, if you need a shared blog or something similar, this Networks isn't what you're looking for. But DMS is.
-
-With DMS you may point all three domains to the same Apache vhost (or nginx, lighthttpd, ...), where your wordpress instance is running on. You than create a Wordpress Page (*My Regular Product*), perhaps with a custom template. In the DMS options you can now configure the domain www.myregularproduct.com to your Wordpress page *My Regular Product*.
-
-As easy as pie!
-
-*Note; the custom template is not handled by DMS, it's a built-in Wordpress feature.*
+If you do plan on creating sites that are strongly interconnected and share data - **please do you a multiste network**!
