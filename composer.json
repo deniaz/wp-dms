@@ -1,0 +1,22 @@
+{
+    "name": "deniaz/wp-dms",
+    "description": "Maps domains to WP Posts.",
+    "keywords": ["domain", "url", "vhost", "microsite"],
+    "homepage": "http://www.robertvogt.ch/wp-dms/",
+    "license": "GPL-3.0+",
+    "author": [
+        {
+            "name": "Robert Vogt",
+            "homepage": "http://www.cheekyowl.com"
+        }
+    ],
+    "support": {
+        "issues": "http://github.com/deniaz/wp-dms/issues",
+        "source": "http://github.com/deniaz/wp-dms"
+    },
+    "autoload": {
+        "psr-4": {
+            "Deniaz\\WordPress\\Dms\\": "src/"
+        }
+    }
+}

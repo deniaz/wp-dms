@@ -1,22 +1,22 @@
 === Domain Mapping System ===
 Contributors: deniaz
 Author URI: http://www.cheekyowl.com
-Plugin URI: http://projects.cheekyowl.com/wp-dms
+Plugin URI: http://www.robertvogt.ch/wp-dms
 Tags: domain, url, vhost, microsite
-Requires at least: 3.1
-Tested up to: 3.4.2
-Stable tag: 1.3.2
-Version: 1.3.2
+Requires at least:
+Tested up to: 3.9.1
+Stable tag: 1.4
+Version: 1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Domain Mapping System allows to map domains to WP pages and/or custom types.
+Domain Mapping System allows to map domains to WP posts, pages and/or custom post types.
 
 == Description ==
 
 = Important Links =
 
-[Official Website](http://projects.cheekyowl.com/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
+[Official Website](http://www.robertvogt.ch/wp-dms) | [Bug Tracker](http://www.github.com/deniaz/wp-dms/issues) | [Support](http://www.github.com/deniaz/wp-dms/wiki)
 
 = TL;DR =
 DMS allows one to map domains to WordPress pages, (custom) posts and (custom) archives.
@@ -34,11 +34,11 @@ One important note from Wordpress is:
 > multisite network might not be the best solution.
 (http://ow.ly/aQybY)
 
-Well, if you need a shared blog or something similar, this Networks isn't what you're looking for. But DMS is.
+Well, if you need a shared blog or something similar, WordPress Multisite isn't what you're looking for. But DMS is.
 
-With DMS you may point all three domains to the same Apache vhost (or nginx, lighthttpd, ...), where your wordpress 
-instance is running on. You than create a Wordpress Page (*My Regular Product*), perhaps with a custom template. In the 
-DMS options you can now configure the domain www.myregularproduct.com to your Wordpress page *My Regular Product*.
+With DMS you may point all three domains to the same Apache vhost (or nginx, lighthttpd, ...), where your WordPress
+instance is running on. You than create a WordPress Page (*My Regular Product*), perhaps with a custom template. In the
+DMS options you can now configure the domain www.myregularproduct.com to your WordPress page *My Regular Product*.
 
 As easy as pie!
 
@@ -98,3 +98,8 @@ Possibly, yes. That's because I use the php function `parse_str()` . It turns . 
 
 = 1.3.2 =
 * Show all posts/pages/cpt-posts
+
+= 1.4 =
+* Refactor to comply with PSR-4
+* Incresed PHP requirement to PHP 5.4 as 5.3 is EOL.
+* ...
