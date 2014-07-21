@@ -67,7 +67,7 @@ class Mapper
 
     private function rewrite(DomainPostPair $domainPostPair)
     {
-        $className = "Rewrite\{$domainPostPair->getPostType()}Rewrite";
+        $className = "Deniaz\\Dms\\Rewrite\\{$domainPostPair->getPostType()}Rewrite";
 
         if (class_exists($className)) {
             $rewrite = new $className($domainPostPair);

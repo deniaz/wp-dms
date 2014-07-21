@@ -26,9 +26,15 @@
 
 namespace Deniaz\WordPress\Dms;
 
-$plugin = new Plugin(
-    plugin_dir_path(__FILE__)
-);
+if (file_exists( __DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
+}
+
+add_action('plugins_loaded', function() {
+    (new Plugin(
+        plugin_dir_path(__FILE__)
+    ))->init();
+}, 0);
 
 // @TODO: Install Hook
 // @TODO: Uninstall Hook

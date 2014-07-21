@@ -11,10 +11,8 @@
 
 namespace Deniaz\WordPress\Dms;
 
-use Deniaz\WordPress\Dms\Views\Admin;
-
-class Plugin {
-
+class Plugin
+{
     /**
      * Plugin Dir Path.
      *
@@ -36,8 +34,6 @@ class Plugin {
     public function __construct($pluginDir)
     {
         $this->pluginDir = $pluginDir;
-
-        $this->initHooks();
     }
 
     /**
@@ -47,14 +43,14 @@ class Plugin {
      * @access private
      * @return void
      */
-    private function initHooks()
+    public function init()
     {
         if (!is_admin()) {
-            $domainPostMap = new DomainPostMap();
+            //@TODO Implement real Map
+            //$domainPostMap = new DomainPostMap();
+            $domainPostMap = new MockDomainPostMap();
             $mapper = new Mapper($domainPostMap);
-            add_action('plugins_loaded', array($mapper, 'onPluginsLoaded'), 1, 0);
-        } else {
-            $adminView = new Admin();
+            add_action('wp', array($mapper, 'onPluginsLoaded'), 1, 0);
         }
     }
 }
