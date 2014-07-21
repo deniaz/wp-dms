@@ -70,10 +70,12 @@ class Mapper
         $className = "Rewrite\{$domainPostPair->getPostType()}Rewrite";
 
         if (class_exists($className)) {
-            $rewrite = new $className;
+            $rewrite = new $className($domainPostPair);
         }
         else {
-            $rewrite = new Rewrite\PostRewrite();
+            $rewrite = new Rewrite\PostRewrite($domainPostPair);
         }
+
+        $rewrite->rewrite();
     }
 }
