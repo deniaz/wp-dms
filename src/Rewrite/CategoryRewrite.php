@@ -2,13 +2,14 @@
 
 namespace Deniaz\WordPress\Dms\Rewrite;
 
-class PageRewrite extends PostRewrite
+class CategoryRewrite extends PostRewrite
 {
+
     protected function getQueryArgs()
     {
         if (!isset($this->queryArgs)) {
             $this->queryArgs = array(
-                'page_id' => $this->domainPostPair->id
+                'cat' => $this->domainPostPair->id
             );
         }
 

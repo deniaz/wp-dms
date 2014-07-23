@@ -36,6 +36,9 @@ add_action('plugins_loaded', function() {
     ))->init();
 }, 0);
 
+register_activation_hook(__FILE__, array('Deniaz\\WordPress\\Dms\\Plugin', 'activate'));
+
 // @TODO: Install Hook
 // @TODO: Uninstall Hook
 // @TODO: Handle sites upgrading
+// @TODO: Custom Templates

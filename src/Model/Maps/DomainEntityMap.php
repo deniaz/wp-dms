@@ -8,9 +8,9 @@
  *
  * @package Deniaz\WordPress\Dms
  */
-namespace Deniaz\WordPress\Dms;
+namespace Deniaz\WordPress\Dms\Model;
 
-class DomainPostMap implements DomainPostMapInterface
+class DomainEntityMap implements DomainEntityMapInterface
 {
 
     const DMS_OPTION_KEY = 'dms_map';
@@ -32,22 +32,22 @@ class DomainPostMap implements DomainPostMapInterface
      * Populates the map with information retrieved from the DB.
      *
      * @since 1.4
-     * @return DomainPostMap
+     * @return DomainEntityMap
      */
     public function __construct()
     {
+        // TODO!
         if (($settings = get_option(self::DMS_OPTION_KEY)) !== false) {
-            parse_str($settings, $map);
+            parse_str($settings, $localMap);
 
-            foreach ($map as $key => $value) {
+            foreach ($localMap as $key => $value) {
+                $pair = new \stdClass();
                 // Domains are stored as example_com instead of example.com because of compatibility issues
-                $domain = str_replace('_', '.', $key);
+                $pair->domain = str_replace('_', '.', $key);;
+                $pair->id = $value;
+                $pair->type = '';
 
-                $domainPostPair = new DomainPostPair();
-                $domainPostPair->setDomain($domain);
-                $domainPostPair->setPostID($value);
-
-                $this->map[$domain] = $domainPostPair;
+                $this->map[$pair->domain] = $pair;
             }
         }
 

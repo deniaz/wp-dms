@@ -11,6 +11,8 @@
 
 namespace Deniaz\WordPress\Dms;
 
+use Deniaz\WordPress\Dms\Model\Maps\DomainEntityMapInterface;
+
 class Mapper
 {
     /**
@@ -37,12 +39,12 @@ class Mapper
      * Instantiates Mapper object.
      *
      * @since 1.4
-     * @param DomainPostMap $domainPostMap Map containing Domain and Post Info.
+     * @param DomainEntityMapInterface $domainEntityMap Map containing Domain and Post Info.
      * @return Mapper
      */
-    public function __construct(DomainPostMapInterface $domainPostMap)
+    public function __construct(DomainEntityMapInterface $domainEntityMap)
     {
-        $this->map = $domainPostMap;
+        $this->map = $domainEntityMap;
     }
 
     /**
@@ -65,9 +67,9 @@ class Mapper
         }
     }
 
-    private function rewrite(DomainPostPair $domainPostPair)
+    private function rewrite(\stdClass $domainPostPair)
     {
-        $className = "Deniaz\\Dms\\Rewrite\\{$domainPostPair->getPostType()}Rewrite";
+        $className = "Deniaz\\WordPress\\Dms\\Rewrite\\{$domainPostPair->type}Rewrite";
 
         if (class_exists($className)) {
             $rewrite = new $className($domainPostPair);

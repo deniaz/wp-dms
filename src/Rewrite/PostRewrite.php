@@ -2,17 +2,19 @@
 
 namespace Deniaz\WordPress\Dms\Rewrite;
 
-use Deniaz\WordPress\Dms\DomainPostPair;
-
 class PostRewrite
 {
     protected $domainPostPair;
 
     protected  $queryArgs;
 
-    public function __construct(DomainPostPair $domainPostPair)
+    protected $defaultArgs = array(
+        'update_post_meta_cache' => true
+    );
+
+    public function __construct(\stdClass $pair)
     {
-        $this->domainPostPair = $domainPostPair;
+        $this->domainPostPair = $pair;
     }
 
     public function rewrite()
@@ -21,10 +23,11 @@ class PostRewrite
     }
 
     // @TODO: Change some other global stuff? See WPMUDEV Domain Map Plugin
+    // @TODO: Set posts_per_page (https://github.com/danielbachhuber/wp-dev-docs/blob/master/performance/wp-query-tips.md)
     private function changeQuery()
     {
         query_posts(
-            $this->getQueryArgs()
+            array_merge_recursive($this->defaultArgs, $this->getQueryArgs())
         );
     }
 
@@ -32,8 +35,8 @@ class PostRewrite
     {
         if (!isset($this->queryArgs)) {
             $this->queryArgs = array(
-                'post_type' => strtolower($this->domainPostPair->getPostType()),
-                'p'         => $this->domainPostPair->getPostID()
+                'post_type' => strtolower($this->domainPostPair->type),
+                'p'         => $this->domainPostPair->id
             );
         }
 
