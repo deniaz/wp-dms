@@ -2,8 +2,6 @@
 
 namespace Deniaz\WordPress\Dms\Views;
 
-use Deniaz\WordPress\Dms\Plugin;
-
 class Template
 {
     const TEMPLATE_FOLDER = '/templates/';
