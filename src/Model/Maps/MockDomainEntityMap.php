@@ -30,6 +30,12 @@ class MockDomainEntityMap implements DomainEntityMapInterface
         $page->type = 'Page';
         $this->map['example.com'] = $page;
 
+        $subpage = new \stdClass();
+        $subpage->domain = 'subpage.example.com';
+        $subpage->id = 15;
+        $subpage->type = 'Page';
+        $this->map['subpage.example.com'] = $subpage;
+
         $post = new \stdClass();
         $post->domain = 'example.org';
         $post->id = 9;
@@ -75,6 +81,6 @@ class MockDomainEntityMap implements DomainEntityMapInterface
      * @return mixed
      */
     public function get($key) {
-        return $this->map[$key];
+        return $this->map[strtolower($key)];
     }
 }

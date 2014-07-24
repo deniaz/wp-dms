@@ -47,7 +47,7 @@ class DomainEntityMap implements DomainEntityMapInterface
                 $pair->id = $value;
                 $pair->type = '';
 
-                $this->map[$pair->domain] = $pair;
+                $this->map[strtolower($pair->domain)] = $pair;
             }
         }
 
@@ -72,6 +72,6 @@ class DomainEntityMap implements DomainEntityMapInterface
      * @return mixed
      */
     public function get($key) {
-        return $this->map[$key];
+        return $this->map[strtolower($key)];
     }
 }
