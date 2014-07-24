@@ -1,0 +1,24 @@
+$functional-green: #1db231;
+
+.mod-dms-options {
+    .form-table {
+        .record-flag {
+            float: left;
+            padding: 6px 8px;
+            top: 1px;
+            position: relative;
+            font-size: 12px;
+
+            &.is-active {
+                background: $functional-green;
+                color: #FFF;
+            }
+        }
+
+      .domain {
+          .url-input {
+              margin-left: 0;
+          }
+      }
+    }
+}

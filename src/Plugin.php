@@ -12,11 +12,13 @@
 namespace Deniaz\WordPress\Dms;
 
 use Deniaz\WordPress\Dms\Model\Maps\MockDomainEntityMap;
-
+use Deniaz\WordPress\Dms\Views\Admin;
 class Plugin
 {
     const DMS_VERSION = 1.4;
     const DMS_VERSION_DB_KEY = 'dms_plugin_version';
+    const TEXT_DOMAIN = 'dms';
+
     /**
      * Plugin Dir Path.
      *
@@ -60,6 +62,9 @@ class Plugin
             if (!$this->isLatestInstalled()) {
                 $this->upgrade();
             }
+
+            $admin = new Admin($this->pluginDir);
+            $admin->addHooks();
         }
     }
 

@@ -7,6 +7,8 @@
  * Author: Robert Vogt
  * Author URI: http://www.cheekyowl.com
  * License: GPL3
+ * Text Domain: dms
+ * Domain Path: /lang
  *
  *
  * Copyright 2012 - 2014 Robert Vogt (email: robert@cheekyowl.com)
@@ -42,3 +44,4 @@ register_activation_hook(__FILE__, array('Deniaz\\WordPress\\Dms\\Plugin', 'acti
 // @TODO: Uninstall Hook
 // @TODO: Handle sites upgrading
 // @TODO: Custom Templates
+// @TODO: WPML

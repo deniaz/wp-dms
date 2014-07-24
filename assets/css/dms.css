@@ -1,0 +1,11 @@
+.mod-dms-options .form-table .record-flag {
+  float: left;
+  padding: 6px 8px;
+  top: 1px;
+  position: relative;
+  font-size: 12px; }
+  .mod-dms-options .form-table .record-flag.is-active {
+    background: #1db231;
+    color: #FFF; }
+.mod-dms-options .form-table .domain .url-input {
+  margin-left: 0; }
