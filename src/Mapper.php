@@ -58,7 +58,9 @@ class Mapper
      */
     public function onPluginsLoaded()
     {
-        $this->currentDomain = $_SERVER['HTTP_HOST'];
+        $this->currentDomain = ('/' === $_SERVER['REQUEST_URI'])
+            ? $_SERVER['HTTP_HOST']
+            : $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
         if ($this->map->has($this->currentDomain)) {
             $this->rewrite(
