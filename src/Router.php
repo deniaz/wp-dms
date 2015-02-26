@@ -29,8 +29,8 @@ class Router
         if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER['HTTP_HOST'])) {
             $currentDomain =
                 ('/' === $_SERVER['REQUEST_URI'])
-                    ? $_SERVER['HTTP_HOST']
-                    : $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    ? strtolower($_SERVER['HTTP_HOST'])
+                    : strtolower($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
             if ($this->store->contains($currentDomain)) {
                 /** @var Mapping\EntryInterface $entry */

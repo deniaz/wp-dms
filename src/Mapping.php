@@ -39,7 +39,7 @@ class Mapping implements Mapping\MappingInterface, \IteratorAggregate
         if ($query->have_posts()) {
             foreach ($query->posts as $post) {
                 $class = 'Deniaz\\WordPress\\Dms\\Mapping\\PostEntry';
-                $domain = get_post_meta($post->ID, 'dms_mapped_domain', true);
+                $domain = strtolower(get_post_meta($post->ID, 'dms_mapped_domain', true));
 
                 if (isset($this->entryClass[$post->post_type])) {
                     $class = $this->entryClass[$post->post_type];
