@@ -1,0 +1,20 @@
+{
+    "name": "deniaz/wp-dms",
+    "description": "A tiny domain mapper",
+    "version": "1.4-alpha",
+    "keywords": [],
+    "type": "wordpress-plugin",
+    "homepage": "https://deniaz.github.io/wp-dms",
+    "authors": [
+        {
+            "name": "Robert Vogt",
+            "email": "robert@cheekyowl.com",
+            "homepage": "http://www.cheekyowl.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Deniaz\\WordPress\\Dms\\": "src/"
+        }
+    }
+}
